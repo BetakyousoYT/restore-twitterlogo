@@ -8,5 +8,7 @@ https://www.youtube.com/watch?v=QwXn-YKXWqM
 一応チュートリアル動画も作成しました
 
 更に！！
+
 https://github.com/BetakyousoYT/restore-twitterlogo-extension
+
 拡張機能版も開発しました！
