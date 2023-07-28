@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitterのロゴ戻すやーつ
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      2
 // @description  青い鳥を蘇生するスクリプト
 // @author       β教祖
 // @match        https://x.com/*
@@ -35,11 +35,27 @@
         link.href = 'https://abs.twimg.com/favicons/twitter.2.ico';
     };
 
+    const fixTitle = () => {
+        let title = document.title;
+
+        if (title.includes("/ X")) {
+            title = title.replace("/ X", "/ Twitter");
+
+            document.title = title;
+        }
+    };
+
     new MutationObserver(fixLogo).observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    new MutationObserver(fixTitle).observe(document.body, {
         childList: true,
         subtree: true
     });
 
     fixLogo();
     fixIcon();
+    fixTitle();
 })();
